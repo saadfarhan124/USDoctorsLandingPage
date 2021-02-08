@@ -9,16 +9,17 @@ import {UserShow} from '../Show/Users';
 
 import {RotationList} from '../Lists/Rotations';
 
-import authProvider from '../../authProvider'
-import MyLayout from '../Layout'
+import authProvider from '../Providers/authProvider'
+import MyLayout from '../Helpers/Layout';
 
+import CustomLoginPage from '../Helpers/LoginPage'; 
 
 const dataProvider = jsonServerProvider('http://localhost/usdoctors/api');
 
 const Landing = () => {
     return (
        
-          <Admin layout={MyLayout} title="USDoctors.co" dataProvider={dataProvider}  authProvider={authProvider}>
+          <Admin  loginPage={CustomLoginPage} layout={MyLayout} title="USDoctors.co" dataProvider={dataProvider}  authProvider={authProvider}>
               
               <Resource options={{ label: 'Users' }} show={UserShow} name="users" list={UserList} />
               <Resource options={{ label: 'Rotations' }} show={UserShow} name="rotations" list={RotationList} />
