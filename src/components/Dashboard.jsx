@@ -50,7 +50,6 @@ const Dashboard =  () => {
 
     const fetchRotationList = async () => {
         const response = await axios.get(`${baseUrl}/api/rotations/recent`);
-        console.log(response.data);
         setRotationList(response.data);
     };
 

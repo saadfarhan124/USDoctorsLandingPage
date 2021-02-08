@@ -1,5 +1,5 @@
 import React  from "react";
-import { List, Datagrid, TextField, DateField, EmailField, ChipField } from 'react-admin';
+import { List, Datagrid, TextField, DateField, EmailField, ChipField, Filter, ReferenceInput, SelectInput, TextInput } from 'react-admin';
 import classnames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -32,9 +32,19 @@ const ColoredChipField = props => {
         />
     );
 }
+
+const RotationFilter = (props) => (
+    <Filter {...props}>
+        {/* <TextInput label="Search" source="q" alwaysOn /> */}
+        <ReferenceInput label="User" source="user_id" reference="users" allowEmpty>
+            <SelectInput optionText="fullname" />
+        </ReferenceInput>
+    </Filter>
+);
+
 export const RotationList = props => {
     return  (
-        <List {...props} bulkActionButtons={false}>
+        <List filters={<RotationFilter />} {...props}>
             <Datagrid>
                 <TextField label="Student Name" source="studentname" />
                 <TextField label="Doctor Name" source="doctorname" />
