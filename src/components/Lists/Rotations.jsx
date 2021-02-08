@@ -1,5 +1,5 @@
 import React  from "react";
-import { List, Datagrid, TextField, DateField, EmailField, ChipField, Filter, ReferenceInput, SelectInput, TextInput } from 'react-admin';
+import { List, Datagrid, TextField, DateField, EmailField, ChipField, Filter, ReferenceInput, SelectInput } from 'react-admin';
 import classnames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 
