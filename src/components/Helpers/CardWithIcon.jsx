@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FC, createElement } from 'react';
+import { createElement } from 'react';
 import { Card, Box, Typography, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const CardWithIcon = props => {
-    const { icon, title, subtitle, to, children } = props;
+    const { icon, title, subtitle, children } = props;
     const classes = useStyles(props);
     return (
         <Card className={classes.card}>
