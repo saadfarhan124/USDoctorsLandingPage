@@ -11,6 +11,7 @@ import {
     Card,
     CardHeader
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -63,7 +64,9 @@ const NewStudents = ({list}) => {
                     backgroundColor: '#fff',
                     color: '#000000',
                     margin: '15px'
-                }} variant='contained'>
+                }} variant='contained'
+                component={Link}
+                to="/users">
                     View All Students
                 </Button>
             </Box>

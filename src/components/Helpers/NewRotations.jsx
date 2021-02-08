@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
+import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -81,7 +82,9 @@ const NewRotations = ({list}) => {
                     backgroundColor: '#fff',
                     color: '#000000',
                     margin: '15px'
-                }} variant='contained'>
+                }} variant='contained'
+                component={Link}
+                to="/rotations">
                     View All Rotations
                 </Button>
             </Box>

@@ -4,8 +4,11 @@ import classnames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-    Scheduled: { backgroundColor: '#f5cb0f', color: '#fff' },
+    Scheduled: { backgroundColor: '#2f77eb', color: '#fff' },
     Completed: { backgroundColor: '#00e029', color: '#fff' },
+    Pending: { backgroundColor: '#f5cb0f', color: '#fff' },
+    PaymentPending : {backgroundColor: '#bd8908', color: '#fff'},
+    Rejected : {backgroundColor: '#820522', color: '#fff'},
 });
 
 const ColoredChipField = props => {
@@ -13,11 +16,17 @@ const ColoredChipField = props => {
 
     const isScheduled = v => v === 'Scheduled';
     const isCompleted = v => v === 'Completed';
+    const isPending = v => v === 'Pending';
+    const isPaymentPending = v => v === 'Payment Pending';
+    const isRejected = v => v === 'Rejected';
     return (
         <ChipField
             className={classnames({
                 [classes.Scheduled]: isScheduled(props.record[props.source]),
                 [classes.Completed]: isCompleted(props.record[props.source]),
+                [classes.Pending]: isPending(props.record[props.source]),
+                [classes.PaymentPending]: isPaymentPending(props.record[props.source]),
+                [classes.Rejected]: isRejected(props.record[props.source]),
             })}
             {...props}
         />
@@ -33,7 +42,7 @@ export const RotationList = props => {
                 <DateField label="End Date"  source="rotation_end_date" options={{ year: 'numeric', month: 'long', day: 'numeric' }}/>
                 <EmailField label="Student Email" source="email" />
                 <TextField label="Student Mobile" source="mobile" />
-                <ColoredChipField label="Status" source="status" />
+                <ColoredChipField label="Status" source="rotation_status" />
             </Datagrid>
         </List>
     )
