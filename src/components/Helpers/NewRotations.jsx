@@ -3,7 +3,6 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { useTranslate } from 'react-admin';
 import {
     Avatar,
     Box,
@@ -30,56 +29,47 @@ const useStyles = makeStyles(theme => ({
     linkContent: {
         color: theme.palette.primary.main,
     },
+    button:{
+        backgroundColor: '#fff',
+        color: '#000000'
+    }
 }));
 
-const NewRotations = () => {
+const NewRotations = ({list}) => {
     const classes = useStyles();
-    const translate = useTranslate();
-
-    const orders = [
-        {
-            id : 1,
-            avatar : 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png',
-            date : '2020-12-02',
-            studentName : 'saad'
-        }
-    ];
 
     return (
         <Card className={classes.root}>
-            <CardHeader title={translate('New Rotations')} />
+            <CardHeader title={'New Rotations'} />
             <List dense={true}>
-                {orders.map(record => (
+                {list && list.map(record => (
                     <ListItem
                         key={record.id}
                         button
-                        // component={Link}
-                        // to={`/commands/${record.id}`}
                     >
                         <ListItemAvatar>
-                            {record.avatar ? (
+                            {record.photo ? (
                                 <Avatar
-                                    src={`${
-                                        record.avatar
-                                    }?size=32x32`}
+                                    src={
+                                        `http://localhost/usdoctors/uploads/student/${record.photo}?size=32x32`}
                                 />
                             ) : (
                                 <Avatar />
                             )}
                         </ListItemAvatar>
                         <ListItemText
-                            primary={new Date(record.date).toLocaleString(
+                            primary={new Date(record.created_date).toLocaleString(
                                 'en-GB'
                             )}
                             secondary={
                                 <span>
-                                    {record.studentName}
+                                    {record.studentname}
                                 </span>
                             }
                         />
                         <ListItemSecondaryAction>
                             <span className={classes.cost}>
-                                {56}$
+                                {record.doctorname}
                             </span>
                         </ListItemSecondaryAction>
                     </ListItem>
@@ -87,21 +77,14 @@ const NewRotations = () => {
             </List>
             <Box flexGrow="1">&nbsp;</Box>
             <Box textAlign='center'>
-                <Button variant='contained'>
+                <Button style={{  
+                    backgroundColor: '#fff',
+                    color: '#000000',
+                    margin: '15px'
+                }} variant='contained'>
                     View All Rotations
                 </Button>
             </Box>
-            {/* <Button
-                className={classes.link}
-                // component={Link}
-                // to="/reviews"
-                size="small"
-                color="primary"
-            >
-                <Box p={1} className={classes.linkContent}>
-                    {translate('pos.dashboard.all_reviews')}
-                </Box>
-            </Button> */}
         </Card>
     );
 }

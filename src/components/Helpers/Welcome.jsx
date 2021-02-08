@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Box, Card, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { useTranslate } from 'react-admin';
 
 import publishArticleImage from './welcome.svg';
 
@@ -35,18 +34,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Welcome = () => {
-    const translate = useTranslate();
     const classes = useStyles();
     return (
         <Card className={classes.root}>
             <Box display="flex">
                 <Box flex="1">
                     <Typography variant="h5" component="h1" gutterBottom>
-                        {translate('Welcome')}
+                        {'Welcome'}
                     </Typography>
                     <Box maxWidth="40em">
                         <Typography variant="body1" component="h5" gutterBottom>
-                            {translate('USDoctors.co')}
+                            USDoctors.co
                         </Typography>
                     </Box>
                 </Box>
