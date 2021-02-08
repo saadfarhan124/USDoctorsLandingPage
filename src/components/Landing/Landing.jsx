@@ -13,13 +13,14 @@ import authProvider from '../Providers/authProvider'
 import MyLayout from '../Helpers/Layout';
 
 import CustomLoginPage from '../Helpers/LoginPage'; 
+import Dashboard from '../Dashboard';
 
 const dataProvider = jsonServerProvider('http://localhost/usdoctors/api');
 
 const Landing = () => {
     return (
        
-          <Admin  loginPage={CustomLoginPage} layout={MyLayout} title="USDoctors.co" dataProvider={dataProvider}  authProvider={authProvider}>
+          <Admin dashboard={Dashboard}  loginPage={CustomLoginPage} layout={MyLayout} title="USDoctors.co" dataProvider={dataProvider}  authProvider={authProvider}>
               
               <Resource options={{ label: 'Users' }} show={UserShow} name="users" list={UserList} />
               <Resource options={{ label: 'Rotations' }} show={UserShow} name="rotations" list={RotationList} />
