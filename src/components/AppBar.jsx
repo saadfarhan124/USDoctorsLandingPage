@@ -31,7 +31,7 @@ const MyAppBar = props => {
                 
             >
             </Typography>
-            <img src={Logo} alt="" srcset=""  className={classes.image}/>
+            <img src={Logo} alt="" srcSet=""  className={classes.image}/>
             <span className={classes.spacer} />
         </AppBar>
     );
