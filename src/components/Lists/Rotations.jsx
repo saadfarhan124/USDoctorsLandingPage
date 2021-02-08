@@ -44,7 +44,7 @@ const RotationFilter = (props) => (
 
 export const RotationList = props => {
     return  (
-        <List filters={<RotationFilter />} {...props}>
+        <List filters={<RotationFilter />} {...props} bulkActionButtons={false}>
             <Datagrid>
                 <TextField label="Student Name" source="studentname" />
                 <TextField label="Doctor Name" source="doctorname" />
