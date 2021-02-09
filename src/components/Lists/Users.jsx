@@ -9,6 +9,7 @@ export const UserList = props => {
                 <EmailField label="Email" source="email" />
                 <TextField label="Mobile" source="mobile" />
                 <ChipField label="Rotations enrolled" source="scheduledRotations" />
+                <ChipField label="Status" source="status" />
                 <ShowButton />
             </Datagrid>
         </List>
