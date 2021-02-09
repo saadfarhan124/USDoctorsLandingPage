@@ -51,7 +51,7 @@ const CardWithIcon = props => {
                         {title}
                     </Typography>
                     <Typography variant="h5" component="h2">
-                        {subtitle || ' '}
+                        {subtitle}
                     </Typography>
                 </Box>
             </div>

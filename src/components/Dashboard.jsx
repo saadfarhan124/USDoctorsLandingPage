@@ -7,6 +7,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import NewRotations from './Helpers/NewRotations';
 import NewStudents from './Helpers/NewStudents';
 import Welcome from './Helpers/Welcome';
+import Dollar from '@material-ui/icons/AttachMoney' 
 
 const axios = require('axios');
 
@@ -31,6 +32,8 @@ const Dashboard =  () => {
     const [rotationList, setRotationList] = useState([]);
     const [rotationCount, setRotationCount] = useState(0);
 
+    const [totalAmountEarned, setTotalAmountEarned] = useState(0);
+
     const baseUrl = 'https://app.usdoctors.co';
 
     const fetchStudents = async () => {
@@ -53,11 +56,17 @@ const Dashboard =  () => {
         setRotationList(response.data);
     };
 
+    const fetchTotalAmountEarned = async () => {
+        const response = await axios.get(`${baseUrl}/api/rotations/amount/`);
+        setTotalAmountEarned(response.data);
+    }
+
     useEffect(() => {
         fetchStudents();
         fetchStudentList();
         fetchRotations();
         fetchRotationList();
+        fetchTotalAmountEarned();
     }, [studentCount, rotationCount])
 
     const isXSmall = useMediaQuery((theme) =>
@@ -73,7 +82,10 @@ const Dashboard =  () => {
                     <Welcome />
                 </div>
                 <div style={styles.singleCol}>
-                    <CountCard style={styles.topMargin} title="Students" value = {studentCount} icon ={PersonIcon} />
+                    <CountCard style={styles.topMargin} title="Total Amount Earned" value = {totalAmountEarned} icon ={Dollar} />
+                </div>
+                <div style={styles.singleCol}>
+                    <CountCard style={styles.topMargin} title="Students" value = {studentCount} icon ={Dollar} />
                 </div>
                 <div style={styles.singleCol}>
                     <NewStudents style={styles.topMargin} />
@@ -92,6 +104,10 @@ const Dashboard =  () => {
                 <Welcome />
             </div>
             <div style={styles.flex}>
+                <div style={styles.leftCol}>
+                    <CountCard title="Total Amount Earned" value = {totalAmountEarned} icon ={Dollar} />
+                    <Spacer />
+                </div>
                 <div style={styles.leftCol}>
                     <CountCard title="Students" value = {studentCount} icon ={PersonIcon} />
                     <Spacer />
@@ -117,6 +133,9 @@ const Dashboard =  () => {
             </div>
             <div style={styles.flex}>
                 <div style={styles.leftCol}>
+                    <CountCard title="Total Amount Earned" value = {totalAmountEarned} icon ={Dollar} />
+                </div>
+                <div style={styles.leftCol}>
                     <div style={styles.flex}>
                         <CountCard title="Students" value = {studentCount} icon ={PersonIcon} />
                         <Spacer />                       
@@ -134,6 +153,7 @@ const Dashboard =  () => {
                         <NewRotations list={rotationList} />
                     </div>
                 </div>
+              
             </div>
         </>
     );
