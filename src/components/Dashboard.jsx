@@ -31,7 +31,7 @@ const Dashboard =  () => {
     const [rotationList, setRotationList] = useState([]);
     const [rotationCount, setRotationCount] = useState(0);
 
-    const baseUrl = 'http://localhost/usdoctors';
+    const baseUrl = 'https://app.usdoctors.co';
 
     const fetchStudents = async () => {
         const response = await axios.get(`${baseUrl}/api/podcast/user_count`);
