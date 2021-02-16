@@ -6,9 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     Scheduled: { backgroundColor: '#2f77eb', color: '#fff' },
     Completed: { backgroundColor: '#00e029', color: '#fff' },
-    Pending: { backgroundColor: '#f5cb0f', color: '#fff' },
-    PaymentPending : {backgroundColor: '#bd8908', color: '#fff'},
-    Rejected : {backgroundColor: '#820522', color: '#fff'},
 });
 
 const ColoredChipField = props => {
@@ -16,17 +13,11 @@ const ColoredChipField = props => {
 
     const isScheduled = v => v === 'Scheduled';
     const isCompleted = v => v === 'Completed';
-    const isPending = v => v === 'Pending';
-    const isPaymentPending = v => v === 'Payment Pending';
-    const isRejected = v => v === 'Rejected';
     return (
         <ChipField
             className={classnames({
                 [classes.Scheduled]: isScheduled(props.record[props.source]),
                 [classes.Completed]: isCompleted(props.record[props.source]),
-                [classes.Pending]: isPending(props.record[props.source]),
-                [classes.PaymentPending]: isPaymentPending(props.record[props.source]),
-                [classes.Rejected]: isRejected(props.record[props.source]),
             })}
             {...props}
         />
