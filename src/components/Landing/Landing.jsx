@@ -15,7 +15,7 @@ import MyLayout from '../Helpers/Layout';
 import CustomLoginPage from '../Helpers/LoginPage'; 
 import Dashboard from '../Dashboard';
 
-const dataProvider = jsonServerProvider('http://app.usdoctors.co/api');
+const dataProvider = jsonServerProvider('https://app.usdoctors.co/api');
 
 const Landing = () => {
     return (
